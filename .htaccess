@@ -1,0 +1,13 @@
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "*"
+
+RewriteEngine On
+RewriteRule ^api/([a-z_0-9]+) api/$1.php [NC]
+RewriteRule ^api/([a-z_0-9]+)/(.*) api/$1.php/$2 [NC]
+
+php_flag display_startup_errors off
+php_flag display_errors off
+php_flag html_errors off
+
+php_flag log_errors on
+# php_value error_log /location/to/php_error.log
